@@ -6,10 +6,9 @@
 
 import read_file
 
-if _name_ == "_main_":
+if __name__ == "__main__":
+    values = read_file.read_file("testing/test5-1.in", data_separation=" ", first_line=False)
 
- prototypes = read_file("/testing/test5-1.in", data_sep=",", ignore_first_line=True)
-
- print("\n Prototipes")
- print("------------------ ")
- print(prototypes)
+    print("\n Values")
+    print("------------------ ")
+    print(values)

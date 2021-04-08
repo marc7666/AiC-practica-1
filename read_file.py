@@ -4,7 +4,7 @@
 # Marc Cervera Rosell
 # ************************************
 
-def read_file(filename, data_separation=" ", ignore_first_line=False):
+def read_file(filename, data_separation=" ", first_line=False):
     print("************* READING DATA... *************")
     values = []
     # Openning file
@@ -14,7 +14,7 @@ def read_file(filename, data_separation=" ", ignore_first_line=False):
         # Filter empty lines
         filtered_reader = (line for line in strip_reader if line)
         # Skip first line if needed
-        if ignore_first_line:
+        if first_line:
             next(filtered_reader)
         # Split line, parse token and append to values
         for line in filtered_reader:
