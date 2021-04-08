@@ -4,25 +4,23 @@
 # Marc Cervera Rosell
 # ************************************
 
-def read_file(filename, data_separation=" ", first_line=True):
+def read_file(filename, data_separation=" "):
     print("************* READING DATA... *************")
     values = []
-    first = []
     # Openning file
     with open(filename, "r") as fn:
         # Strip lines
         strip_reader = (line.strip() for line in fn)
         # Filter empty lines
-        filtered_reader = (line for line in strip_reader if line)
+        filtered_reader = [line for line in strip_reader if line]
         # Skip first line if needed
-        if first_line:
-            next(filtered_reader)
+        print(filtered_reader[0])
+        n, h, alpha, beta = map(int, filtered_reader[0].split(data_separation))
         # Split line, parse token and append to values
-        for line in filtered_reader:
-            values.append(
-                [filter_token(token) for token in line.split(data_separation)]
-            )
-        return values
+        for line in filtered_reader[1:]:
+            x, y = map(int, line.split(data_separation))
+            values.append((x, y))
+        return values, n, h, alpha, beta
 
 
 def filter_token(token):
