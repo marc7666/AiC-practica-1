@@ -4,7 +4,7 @@
 # Marc Cervera Rosell
 # ************************************
 
-def read_file(filename, data_separation=" ", first_line=False):
+def read_file(filename, data_separation=" ", first_line=True):
     print("************* READING DATA... *************")
     values = []
     # Openning file
