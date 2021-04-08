@@ -7,6 +7,7 @@
 def read_file(filename, data_separation=" ", first_line=True):
     print("************* READING DATA... *************")
     values = []
+    first = []
     # Openning file
     with open(filename, "r") as fn:
         # Strip lines
