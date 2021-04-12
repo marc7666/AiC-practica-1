@@ -14,7 +14,6 @@ def read_file(filename, data_separation=" "):
         # Filter empty lines
         filtered_reader = [line for line in strip_reader if line]
         # Skip first line if needed
-        print(filtered_reader[0])
         n, h, alpha, beta = map(int, filtered_reader[0].split(data_separation))
         # Split line, parse token and append to values
         for line in filtered_reader[1:]:
