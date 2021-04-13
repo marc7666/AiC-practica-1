@@ -15,7 +15,7 @@ def read_file(filename, data_separation=" "):
         filtered_reader = [line for line in strip_reader if line]
         # First line is the problem data
         n, h, alpha, beta = map(int, filtered_reader[0].split(data_separation))
-        # Split line, parse token and append to values
+        # Split lines, parse token and append to values (2 to last)
         for line in filtered_reader[1:]:
             x, y = map(int, line.split(data_separation))
             values.append((x, y))
