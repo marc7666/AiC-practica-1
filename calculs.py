@@ -46,10 +46,10 @@ def costos(n, alpha, beta, h, dis, alt):
 
     for i in range(0, n):  # 0 to n => Chek all the key points
 
-        costosAltura += alpha * (h - alt[i])
-        if i < n - 1:
-            costosDistancia += (beta * (dis[i] ** 2))
+        costosAltura += h - alt[i]
+        if i < n - 1:  # If we're in the last column we cannot calculate de costs of the distance
+            costosDistancia += dis[i] ** 2
 
-    resultado = costosAltura + costosDistancia
+    resultado = (alpha * costosAltura) + (beta * costosDistancia)
 
     return resultado
