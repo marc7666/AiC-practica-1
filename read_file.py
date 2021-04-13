@@ -13,7 +13,7 @@ def read_file(filename, data_separation=" "):
         strip_reader = (line.strip() for line in fn)
         # Filter empty lines
         filtered_reader = [line for line in strip_reader if line]
-        # Skip first line if needed
+        # First line is the problem data
         n, h, alpha, beta = map(int, filtered_reader[0].split(data_separation))
         # Split line, parse token and append to values
         for line in filtered_reader[1:]:
