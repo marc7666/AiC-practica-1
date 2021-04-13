@@ -29,7 +29,7 @@ def radius(values):
     return rad, dis, alt
 
 
-# This method returns a tuple (x, y)
+# This method returns the coordinates of a tuple tuple (x, y)
 
 def medides(values):
     int1 = values[0]
@@ -44,7 +44,7 @@ def costos(n, alpha, beta, h, dis, alt):
     costosAltura = 0
     costosDistancia = 0
 
-    for i in range(0, n):
+    for i in range(0, n):  # 0 to n => Chek all the key points
 
         costosAltura += alpha * (h - alt[i])
         if i < n - 1:

@@ -8,9 +8,9 @@ import read_file
 import calculs
 
 if __name__ == "__main__":
-
     values, n, h, alpha, beta = read_file.read_file("testing/test5-1.in", data_separation=" ")
-    rad, dis, alt = calculs.radius(values)
+    # values = List of tuples (x, y), n = number of columns, h = required height, alpha & beta = cost factors
+    rad, dis, alt = calculs.radius(values)  # radius, distance, height
 
     print("\n Values")
     print("------------------ ")
