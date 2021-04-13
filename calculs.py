@@ -13,11 +13,11 @@ def radius(values):
     rad = []  # Radius
     dis = []  # Distance
     alt = []  # Height
-    antdistancia = 0
+    antdistancia = 0  # Previous distance
 
     for pos in values:
 
-        int1, int2 = medides(pos)
+        int1, int2 = medides(pos)  # int1 = x && int2 = y
         rad.append(math.sqrt(int1 ** 2 + int2 ** 2))  # radius formula
         alt.append(int2)
 
@@ -28,6 +28,8 @@ def radius(values):
 
     return rad, dis, alt
 
+
+# This method returns a tuple (x, y)
 
 def medides(values):
     int1 = values[0]

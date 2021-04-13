@@ -6,7 +6,7 @@
 
 def read_file(filename, data_separation=" "):
     print("************* READING DATA... *************")
-    values = []
+    values = []  # List of tuples (x, y)
     # Openning file
     with open(filename, "r") as fn:
         # Strip lines
