@@ -9,8 +9,8 @@ import calculs
 
 if __name__ == "__main__":
 
-    values, n, h, alpha, beta = read_file.read_file("aqueductes/secret-27.in", data_separation=" ")
-    rad, dis, alt = calculs.radius(values)
+    values, n, h, alpha, beta = read_file.read_file("testing/test5-2.in", data_separation=" ")
+    dis, alt, disAnt = calculs.obtainValues(values)
 
     print("\n Values")
     print("------------------ ")
@@ -33,5 +33,5 @@ if __name__ == "__main__":
     print(beta)
     print("\n Total sum")
     print("------------------ ")
-    resultado=calculs.costos(n, alpha, beta, h, dis, alt)
+    resultado=calculs.costsAque(n, alpha, beta, h, values)
     print(resultado)

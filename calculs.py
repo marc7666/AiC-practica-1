@@ -7,17 +7,24 @@
 import math
 
 
-def calc_impossible(posantX, d, h, dis):
+# Calculating posibility create pont
+def calc_impossiblepont(posantX, d, h, disX):
     r = (d / 2)
-    height = math.sqrt((r ** 2 - (dis - posantX - r) ** 2)) + h
+    height = math.sqrt((r ** 2 - (disX - posantX - r) ** 2)) + h
     return height < h
+
+
+# Calculating posibility create aqueduct
+def calc_impossible(h, d):
+    r = (d / 2)
+    return (h - r) < h
 
 
 # Calculating the arc radius
 
-def radius(values):
-    dis = []  # Distance
-    disAnt = []  # Distance
+def obtainValues(values):
+    d = []  # Distance
+    disX = []  # Distance Cordenate Sol
     alt = []  # Height
     antdistancia = -50
 
@@ -27,11 +34,11 @@ def radius(values):
         alt.append(y)
 
         if antdistancia != -50:
-            dis.append(x - antdistancia)
-            disAnt.append(x)
+            d.append(x - antdistancia)
+            disX.append(x)
         antdistancia = x
 
-    return dis, alt, disAnt
+    return d, alt, disX
 
 
 def medides(values):
@@ -43,17 +50,23 @@ def medides(values):
 
 # This method calculates the total costs.
 
-def costos(n, alpha, beta, h, dis, alt, disAnt):
+def costsAque(n, alpha, beta, h, values):
+
     costosAltura = 0
     costosDistancia = 0
     esposible = True
-    for i in range(0, n):
-        n = n + 1
 
-        esposible = calc_impossible(disAnt[i], dis[i], h, )
+    d, alt, disX = obtainValues(values)
+    for i in range(0, n):
+
         costosAltura += (h - alt[i])
+
         if i < n - 1:
-            costosDistancia += (dis[i] ** 2)
+            costosDistancia += (d[i] ** 2)
+            esposible = calc_impossible(h, d[i])
+        elif esposible == False:
+            break
 
     resultado = (alpha * costosAltura) + (beta * costosDistancia)
+
     return resultado
