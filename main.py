@@ -8,9 +8,9 @@ import read_file
 import calculs
 
 if __name__ == "__main__":
-    values, n, h, alpha, beta = read_file.read_file("testing/test5-1.in", data_separation=" ")
-    # values = List of tuples (x, y), n = number of columns, h = required height, alpha & beta = cost factors
-    rad, dis, alt = calculs.radius(values)  # radius, distance, height
+
+    values, n, h, alpha, beta = read_file.read_file("aqueductes/secret-27.in", data_separation=" ")
+    rad, dis, alt = calculs.radius(values)
 
     print("\n Values")
     print("------------------ ")
@@ -18,6 +18,7 @@ if __name__ == "__main__":
     print("\n distancia entre cada punto")
     print("------------------ ")
     print(dis)
+    print(alt)
     print("\n columnas/puntos")
     print("------------------ ")
     print(n)
@@ -32,4 +33,5 @@ if __name__ == "__main__":
     print(beta)
     print("\n Total sum")
     print("------------------ ")
-    print(calculs.costos(n, alpha, beta, h, dis, alt))
+    resultado=calculs.costos(n, alpha, beta, h, dis, alt)
+    print(resultado)
