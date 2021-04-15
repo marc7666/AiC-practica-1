@@ -6,18 +6,17 @@
 
 import math
 
+# Calculating posibility create aqueduct
+def calc_impossible(disX, d, h, posantX):
+    r = (d / 2)
+    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
+    return height < h
 
 # Calculating posibility create pont
 def calc_impossiblepont(disX, d, h, posantX):
     r = (d / 2)
     height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
     return height < h
-
-
-# Calculating posibility create aqueduct
-def calc_impossible(h, d):
-    r = (d / 2)
-    return (h - r) < h
 
 
 # Calculating the arc radius
@@ -58,11 +57,11 @@ def costsAque(n, alpha, beta, h, values):
     d, alt, disX = obtainValues(values)
     for i in range(0, n):
         costosaltura += (h - alt[i])
-
-        if i < n - 1:
+        if 0 < i < n-1:
+            impossible = calc_impossible(disX[i], h, d[i], disX[i - 1])
+        if i < n-1:
             costosdistancia += (d[i] ** 2)
-            impossible = calc_impossible(h, d[i])
-        elif not impossible:
+        if not impossible:
             break
 
     cost = (alpha * costosaltura) + (beta * costosdistancia)
@@ -81,12 +80,13 @@ def costPont(n, alpha, beta, h, values):
     impossible = True
 
     for i in range(0, n):
+
         if 0 < i < n-1:
             impossible = calc_impossiblepont(disX[i], dPont, h, disX[0])
-        elif not impossible:
+        if not impossible:
             break
 
     cost = (alpha * costosaltura) + (beta * (dPont ** 2))
     print(impossible)
-    print(dPont)
+
     return cost

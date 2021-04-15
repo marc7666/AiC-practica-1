@@ -9,7 +9,7 @@ import calculs
 
 if __name__ == "__main__":
 
-    values, n, h, alpha, beta = read_file.read_file("aqueductes/secret-10.in", data_separation=" ")
+    values, n, h, alpha, beta = read_file.read_file("aqueductes/secret-03.in", data_separation=" ")
     dis, alt, disAnt = calculs.obtainValues(values)
 
     print("\n Values")
