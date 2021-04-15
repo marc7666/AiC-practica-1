@@ -6,49 +6,51 @@
 
 import math
 
-def calc_impossible(posX, d, alt):
+
+def calc_impossible(posantX, d, h, dis):
     r = (d / 2)
-    height = math.sqrt((r ** 2 - (posX-r) ** 2))+alt
-    return height < alt
+    height = math.sqrt((r ** 2 - (dis - posantX - r) ** 2)) + h
+    return height < h
 
 
 # Calculating the arc radius
 
 def radius(values):
-    rad = []  # Radius
     dis = []  # Distance
+    disAnt = []  # Distance
     alt = []  # Height
     antdistancia = -50
 
     for pos in values:
 
-        int1, int2 = medides(pos)
-        rad.append(math.sqrt(int1 ** 2 + int2 ** 2))  # radius formula
-        alt.append(int2)
+        x, y = medides(pos)
+        alt.append(y)
 
         if antdistancia != -50:
-            dis.append(int1 - antdistancia)
+            dis.append(x - antdistancia)
+            disAnt.append(x)
+        antdistancia = x
 
-        antdistancia = int1
-
-    return rad, dis, alt
+    return dis, alt, disAnt
 
 
 def medides(values):
-    int1 = values[0]
-    int2 = values[1]
+    x = values[0]
+    y = values[1]
 
-    return int1, int2
+    return x, y
 
 
 # This method calculates the total costs.
 
-def costos(n, alpha, beta, h, dis, alt):
+def costos(n, alpha, beta, h, dis, alt, disAnt):
     costosAltura = 0
     costosDistancia = 0
-
+    esposible = True
     for i in range(0, n):
+        n = n + 1
 
+        esposible = calc_impossible(disAnt[i], dis[i], h, )
         costosAltura += (h - alt[i])
         if i < n - 1:
             costosDistancia += (dis[i] ** 2)
