@@ -8,9 +8,9 @@ import math
 
 
 # Calculating posibility create pont
-def calc_impossiblepont(posantX, d, h, disX):
+def calc_impossiblepont(disX, d, h, posantX):
     r = (d / 2)
-    height = math.sqrt((r ** 2 - (disX - posantX - r) ** 2)) + h
+    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
     return height < h
 
 
@@ -32,10 +32,10 @@ def obtainValues(values):
 
         x, y = medides(pos)
         alt.append(y)
-
+        disX.append(x)
         if antdistancia != -50:
             d.append(x - antdistancia)
-            disX.append(x)
+
         antdistancia = x
 
     return d, alt, disX
@@ -51,22 +51,42 @@ def medides(values):
 # This method calculates the total costs.
 
 def costsAque(n, alpha, beta, h, values):
-
-    costosAltura = 0
-    costosDistancia = 0
-    esposible = True
+    costosaltura = 0
+    costosdistancia = 0
+    impossible = True
 
     d, alt, disX = obtainValues(values)
     for i in range(0, n):
-
-        costosAltura += (h - alt[i])
+        costosaltura += (h - alt[i])
 
         if i < n - 1:
-            costosDistancia += (d[i] ** 2)
-            esposible = calc_impossible(h, d[i])
-        elif esposible == False:
+            costosdistancia += (d[i] ** 2)
+            impossible = calc_impossible(h, d[i])
+        elif not impossible:
             break
 
-    resultado = (alpha * costosAltura) + (beta * costosDistancia)
+    cost = (alpha * costosaltura) + (beta * costosdistancia)
+    print(impossible)
+    return cost
 
-    return resultado
+
+# This method calculates the total costs.
+
+def costPont(n, alpha, beta, h, values):
+
+    d, alt, disX = obtainValues(values)
+
+    costosaltura = (h - alt[0]) + (h - alt[n - 1])
+    dPont = disX[n - 1] - disX[0]
+    impossible = True
+
+    for i in range(0, n):
+        if 0 < i < n-1:
+            impossible = calc_impossiblepont(disX[i], dPont, h, disX[0])
+        elif not impossible:
+            break
+
+    cost = (alpha * costosaltura) + (beta * (dPont ** 2))
+    print(impossible)
+    print(dPont)
+    return cost
