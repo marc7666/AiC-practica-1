@@ -6,27 +6,22 @@
 
 import math
 
+# Calculating posibility create pont
+# disx todas las posiciones del vector
+# posantX siempre el eje x_1
+def calc_impossiblepont(disX, d, h, posantX):
+    r = (d / 2)
+    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
+    return height < h
+
 # Calculating posibility create aqueduct
 def calc_impossible(disX, d, h, posantX):
     r = (d / 2)
-    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
+
+    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + (h-r)
     return height < h
-
-# Calculating posibility create pont
-def calc_impossiblepont(disX, d, h, posantX):
-    r = (d / 2)
-    print(disX)
-    print(d)
-    print(h)
-    print(posantX)
-    print(r)
-
-    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
-    return height < h
-
 
 # Calculating the arc radius
-
 def obtainValues(values):
     d = []  # Distance
     disX = []  # Distance Cordenate Sol
@@ -52,9 +47,7 @@ def medides(values):
 
     return x, y
 
-
 # This method calculates the total costs.
-
 def costsAque(n, alpha, beta, h, values):
     costosaltura = 0
     costosdistancia = 0
@@ -63,8 +56,8 @@ def costsAque(n, alpha, beta, h, values):
     d, alt, disX = obtainValues(values)
     for i in range(0, n):
         costosaltura += (h - alt[i])
-        if 0 < i < n-1:
-            impossible = calc_impossible(disX[i], h, d[i], disX[i - 1])
+        if 0 < i:
+            impossible = calc_impossible(disX[i], d[i-1], h, disX[i - 1])
         if i < n-1:
             costosdistancia += (d[i] ** 2)
         if not impossible:
@@ -74,9 +67,7 @@ def costsAque(n, alpha, beta, h, values):
     print(impossible)
     return cost
 
-
 # This method calculates the total costs.
-
 def costPont(n, alpha, beta, h, values):
 
     d, alt, disX = obtainValues(values)
@@ -88,12 +79,10 @@ def costPont(n, alpha, beta, h, values):
     for i in range(0, n):
 
         if 0 < i:
-            print("hola")
             impossible = calc_impossiblepont(disX[i], dPont, h, disX[0])
         if not impossible:
             break
 
     cost = (alpha * costosaltura) + (beta * (dPont ** 2))
     print(impossible)
-
     return cost
