@@ -15,6 +15,12 @@ def calc_impossible(disX, d, h, posantX):
 # Calculating posibility create pont
 def calc_impossiblepont(disX, d, h, posantX):
     r = (d / 2)
+    print(disX)
+    print(d)
+    print(h)
+    print(posantX)
+    print(r)
+
     height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + h
     return height < h
 
@@ -81,7 +87,8 @@ def costPont(n, alpha, beta, h, values):
 
     for i in range(0, n):
 
-        if 0 < i < n-1:
+        if 0 < i:
+            print("hola")
             impossible = calc_impossiblepont(disX[i], dPont, h, disX[0])
         if not impossible:
             break
