@@ -11,7 +11,6 @@ def read_file(filename, data_separation=" "):
     with open(filename, "r") as fn:
         # Strip lines
         strip_reader = (line.strip() for line in fn)
-        # Filter empty lines
         filtered_reader = [line for line in strip_reader if line]
         # First line is the problem data
         n, h, alpha, beta = map(int, filtered_reader[0].split(data_separation))
