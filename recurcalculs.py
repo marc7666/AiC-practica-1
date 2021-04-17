@@ -55,7 +55,7 @@ def costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis):
 
     impossible = True
 
-    if index == n-1:
+    if index == n:
         cost = (alpha * costsAlt) + (beta * costsDis)
         return cost, impossible
 
@@ -63,44 +63,42 @@ def costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis):
 
     if 0 < index:
         impossible = calc_impossible(alt[index], d[index - 1], h)
+
     if index < n - 1:
         costsDis += (d[index] ** 2)
 
     if not impossible:
-        cost = None
+        cost = 0
         return cost, impossible
 
-    costsAque(n, alpha, beta, h, alt, d, index+1)
-
+    return costsAque(n, alpha, beta, h, alt, d, index + 1, costsAlt, costsDis)
 
 
 
 # This method calculates the total costs.
 def costPont(n, h, alt, disX, index):
 
+    impossible = True
 
+    if index == n:
+        return impossible
     dPont = disX[n - 1] - disX[0]
-
-    if index == n-1:
-        return True
-
     if 0 < index:
         impossible = calc_impossiblepont(alt[index], disX[index], dPont, h, disX[0])
 
     if not impossible:
         return impossible
 
-    costPont(n, h, alt, disX, index+1)
-
-
+    return costPont(n, h, alt, disX, index + 1)
 
 
 def calculate(n, alpha, beta, h, values):
-
-    #values
+    # values
     d, alt, disX = obtainValues(values)
-    index, costsAlt, costsDis = 0
-    #Calcul cost pont
+    index = 0
+    costsAlt = 0
+    costsDis = 0
+    # Calcul cost pont
     costsAltPont = (h - alt[0]) + (h - alt[n - 1])
     dPont = disX[n - 1] - disX[0]
     cost = ((alpha * costsAltPont) + (beta * (dPont ** 2)))
@@ -115,7 +113,7 @@ def calculate(n, alpha, beta, h, values):
         impossiblePont = costPont(n, h, alt, disX, index)
         index = 0
         cost2, impossible = costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis)
-
+    impossible = True
     if impossiblePont and not impossible:
         return cost
 
