@@ -21,12 +21,3 @@ def read_file(filename, data_separation=" "):
             values.append((x, y))
         return values, n, h, alpha, beta
 
-
-def filter_token(token):
-    try:
-        return int(token)
-    except ValueError:
-        try:
-            return float(token)
-        except ValueError:
-            return token

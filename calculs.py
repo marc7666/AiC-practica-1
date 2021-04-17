@@ -3,9 +3,7 @@
 # Aaron Arenas Tomás
 # Marc Cervera Rosell
 # ************************************
-
 import math
-
 
 # Calculating posibility create pont
 # disx todas las posiciones del vector
@@ -16,13 +14,11 @@ def calc_impossiblepont(alt, disX, d, h, posantX):
     height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + (h - r)
     return height > alt
 
-
 # Calculating posibility create aqueduct
 def calc_impossible(alt, d, h):
     r = (d / 2)
     height = (h-r)
     return height >= alt
-
 
 # Calculating the arc radius
 def obtainValues(values):
@@ -50,14 +46,12 @@ def medides(values):
 
     return x, y
 
-
 # This method calculates the total costs.
-def costsAque(n, alpha, beta, h, values):
+def costsAque(n, alpha, beta, h, alt, d):
     costsAlt = 0
     costsDis = 0
     impossible = True
 
-    d, alt, disX = obtainValues(values)
     for i in range(0, n):
         costsAlt += (h - alt[i])
         if 0 < i:
@@ -71,10 +65,8 @@ def costsAque(n, alpha, beta, h, values):
 
     return cost, impossible
 
-
 # This method calculates the total costs.
-def costPont(n, alpha, beta, h, values):
-    d, alt, disX = obtainValues(values)
+def costPont(n, alpha, beta, h, alt, disX, d):
 
     costsAltPont = (h - alt[0]) + (h - alt[n - 1])
     dPont = disX[n - 1] - disX[0]
@@ -95,15 +87,16 @@ def costPont(n, alpha, beta, h, values):
 
 def calculate(n, alpha, beta, h, values):
 
+    d, alt, disX = obtainValues(values)
     if n == 2:
-        cost2, impossible = costsAque(n, alpha, beta, h, values)
+        cost2, impossible = costsAque(n, alpha, beta, h, alt, d)
         if impossible:
             return cost2
         else:
             return "impossible"
     else:
-        cost1, impossiblePont = costPont(n, alpha, beta, h, values)
-        cost2, impossible = costsAque(n, alpha, beta, h, values)
+        cost1, impossiblePont = costPont(n, alpha, beta, h, alt, disX, d)
+        cost2, impossible = costsAque(n, alpha, beta, h, alt, d)
 
     if impossiblePont and not impossible:
         return cost1
