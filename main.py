@@ -18,6 +18,6 @@ if __name__ == "__main__":
 
     cost = calculs.calculate(n, alpha, beta, h, values)
 
-    fitOutput = open('output.ans', 'w')
-    fitOutput.write(str(cost) + '\n')
-    fitOutput.close()
+    file_ans = open('output.ans', 'w')
+    file_ans.write(str(cost) + '\n')
+    file_ans.close()
