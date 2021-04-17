@@ -5,7 +5,7 @@
 # ************************************
 
 def read_file(filename, data_separation=" "):
-    print("************* READING DATA... *************")
+    print("************* Fichero cargado *************")
     values = []  # List of tuples (x, y)
     # Openning file
     with open(filename, "r") as fn:
