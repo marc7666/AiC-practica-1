@@ -1,6 +1,6 @@
 # AiC-practica-1
 
-` `**main.py:** 
+## main.py:
 
 Aquest fitxer, contindrà el programa principal del mètode iteratiu.
 
@@ -16,7 +16,7 @@ Seguidament, s’obtenen els valors n, h, alpha, beta amb la funció integrada e
 
 Finalment, es realitzen els càlculs pertinents i s’escriuen els resultats en un fitxer anomenat: *output.ans*
 
-` `**mainRecursive.py:** 
+## mainRecursive.py:
 
 L’estratègia seguida és la mateixa que en l’script main.py de la versió iterativa.  **calculs.py:** 
 
@@ -43,10 +43,6 @@ Les distàncies entre pilars es calculen com la coordenada ‘x’ del pilar de 
 
 El següent, és un mètode que senzillament retorna les coordenades del terreny donada la seva tupla.
 
-A continuació, s’ha implementat un mètode de càlcul del cost del aqüeducte. Aquest mètode calcula la funció:
-
-![](Aspose.Words.de61e5bd-9479-4561-9029-b3f18e4e5e4b.002.png)
-
 Durant la realització del càlcul, es van fent crides al mètode calc\_impossible (descrit anteriorment) i si en algun moment aquest mètode retorna fals, es talla l’execució del bucle. Finalment es retorna el cost i el booleà que indica la possibilitat de la construcció o no de l’aqüeducte.
 
 Com a última funció de càlculs hi ha costPont, la qual calcula el cost de la construcció d’un pont. Per realitzar el càlcul, s’empra la fórmula vista en la descripció del mètode anterior però ara amb el pont.
@@ -67,6 +63,6 @@ Seguidament, és comprova per n == 2 si es possible la construcció de l’aqüe
 
 *n*≠ 2 s’estableixen els casos del *else*. En primer lloc es calcula tant la possibilitat de construcció com el cost de construcció tant del pont com de l’aqüeducte. Finalment, es comprova segons les impossibilitats i si un cost es major a l’altre quin és el cost que s’ha de retornar.
 
-` `**calculsRecursive.py:** 
+## calculsRecursive.py:
 
 En aquest script, s’han transformat a recursiu únicament les funcions de càlcul de costs. És a dir, s’han transformat les funcions *costPont()* i *costAque().*
