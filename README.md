@@ -86,7 +86,7 @@ Seguidament, és comprova per n == 2 si es possible la construcció de l’aqüe
 En aquest script, s’han transformat a recursiu únicament les funcions de càlcul de costs. És a dir, s’han transformat les funcions *costPont()* i *costAque().*
 
 
-#Requeriments:
+# Requeriments:
 
 - python main.py <File>
 - python mainRecursive.py <File>
