@@ -1,5 +1,11 @@
 # AiC-practica-1
 
+## Authors
+This project have been developed by:
+- [Aarón Arenas](https://github.com/aaron-at97)
+- [Marc Cervera](https://github.com/marc7666)
+
+
 ## read_file.py:
 
 Primera ment s’ha implementat un script anomenat ‘read\_file.py’, el qual llegeix el fitxer línia a línia.
