@@ -23,7 +23,7 @@ def calc_impossible(alt, d, h):
     return height >= alt
 
 
-# Calculating the arc radius
+
 def obtainValues(values):
     d = []  # Distance
     disX = []  # Distance Cordenate Sol
