@@ -20,7 +20,7 @@ def calc_impossiblepont(alt, disX, d, h, posantX):
 def calc_impossible(alt, d, h):
     r = (d / 2)
     height = (h - r)
-    return height >= alt
+    return height > alt
 
 
 
