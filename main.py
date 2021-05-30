@@ -13,13 +13,13 @@ Main function of the iterative version of the practical case
 '''
 
 if __name__ == "__main__":
-    #parser = argparse.ArgumentParser(description='calculs')
-    #parser.add_argument('testing', help='Fichero del aqueducto')
-    #argumento = parser.parse_args()
+    # parser = argparse.ArgumentParser(description='calculs')
+    # parser.add_argument('testing', help='Fichero del aqueducto')
+    # argumento = parser.parse_args()
     i = 1
-    for i in range(i,21):
+    for i in range(i, 21):
         if i < 10:
-            num = "0"+str(i)
+            num = "0" + str(i)
             fitx = "aqueductes/secret-" + num + ".in"
         else:
             num = str(i)
@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
         cost = calculs.calculate(n, alpha, beta, h, values)
         print("---------------------------------------")
-        print("Fitx",fitx)
+        print("Fitx", fitx)
         print("---------------------------------------")
         print("Resultado introducido en el output.ans")
         print("---------------------------------------")
