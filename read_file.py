@@ -2,7 +2,12 @@
 # Code made by:
 # Aaron Arenas Tomás
 # Marc Cervera Rosell
-# ************************************
+# ************************************+
+
+'''
+Reading de input file withe the data problem
+'''
+
 
 def read_file(filename, data_separation=" "):
     print("************* Fichero cargado *************")
@@ -19,4 +24,3 @@ def read_file(filename, data_separation=" "):
             x, y = map(int, line.split(data_separation))
             values.append((x, y))
         return values, n, h, alpha, beta
-

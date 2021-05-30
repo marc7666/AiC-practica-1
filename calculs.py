@@ -5,19 +5,28 @@
 # ************************************
 import math
 
-# Calculating posibility create pont
 # disx todas las posiciones del vector
 # posantX siempre el eje x_1
+
+'''
+This method calculates the possibility of creating a bridge
+'''
+
 
 def calc_impossiblepont(alt, disX, d, h, posantX):
     r = (d / 2)
     height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + (h - r)
     return height > alt
 
-# Calculating posibility create aqueduct
+
+'''
+This method calculates the possiblity of creating an aqueduct
+'''
+
+
 def calc_impossible(alt, d, h):
     r = (d / 2)
-    height = (h-r)
+    height = (h - r)
     return height > alt
 
 
@@ -40,13 +49,23 @@ def obtainValues(values):
     return d, alt, disX
 
 
+'''
+This method returns a tuple with a the two coordinates of a terrain point
+'''
+
+
 def medides(values):
     x = values[0]
     y = values[1]
 
     return x, y
 
-# This method calculates the total costs.
+
+'''
+This method calculates the costs of making an aqueduct
+'''
+
+
 def costsAque(n, alpha, beta, h, alt, d):
     costsAlt = 0
     costsDis = 0
@@ -65,9 +84,13 @@ def costsAque(n, alpha, beta, h, alt, d):
 
     return cost, impossible
 
-# This method calculates the total costs.
-def costPont(n, alpha, beta, h, alt, disX, d):
 
+'''
+This method calculates the costs of making a bridge
+'''
+
+
+def costPont(n, alpha, beta, h, alt, disX, d):
     costsAltPont = (h - alt[0]) + (h - alt[n - 1])
     dPont = disX[n - 1] - disX[0]
     impossible = True
@@ -85,8 +108,13 @@ def costPont(n, alpha, beta, h, alt, disX, d):
     return cost, impossible
 
 
-def calculate(n, alpha, beta, h, values):
+'''
+This method will calculate the possibility of making a bridge and making an aqueduct and will return the best one 
+of the possiblities
+'''
 
+
+def calculate(n, alpha, beta, h, values):
     d, alt, disX = obtainValues(values)
     if n == 2:
         cost2, impossible = costsAque(n, alpha, beta, h, alt, d)

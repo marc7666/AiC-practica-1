@@ -5,10 +5,13 @@
 # ************************************
 import math
 
-
-# Calculating posibility create pont
 # disx todas las posiciones del vector
 # posantX siempre el eje x_1
+
+'''
+This method calculates the possibility of creating a bridge
+'''
+
 
 def calc_impossiblepont(alt, disX, d, h, posantX):
     r = (d / 2)
@@ -16,17 +19,25 @@ def calc_impossiblepont(alt, disX, d, h, posantX):
     return height > alt
 
 
-# Calculating posibility create aqueduct
+'''
+This method calculates the possiblity of creating an aqueduct
+'''
+
+
 def calc_impossible(alt, d, h):
     r = (d / 2)
     height = (h - r)
     return height > alt
 
 
+'''
+This method obtains de three different values: the distance between two columns, 
+'''
+
 
 def obtainValues(values):
     d = []  # Distance
-    disX = []  # Distance Cordenate Sol
+    disX = []  # Distance Coordinate Sol
     alt = []  # Height
     antDis = -50
 
@@ -43,6 +54,11 @@ def obtainValues(values):
     return d, alt, disX
 
 
+'''
+This method returns a tuple with a the two coordinates of a terrain point
+'''
+
+
 def medides(values):
     x = values[0]
     y = values[1]
@@ -50,9 +66,12 @@ def medides(values):
     return x, y
 
 
-# This method calculates the total costs.
-def costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis):
+'''
+This method calculates the costs of making an aqueduct
+'''
 
+
+def costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis):
     impossible = True
 
     if index == n:
@@ -74,10 +93,12 @@ def costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis):
     return costsAque(n, alpha, beta, h, alt, d, index + 1, costsAlt, costsDis)
 
 
+'''
+This method calculates the costs of making a bridge
+'''
 
-# This method calculates the total costs.
+
 def costPont(n, h, alt, disX, index):
-
     impossible = True
 
     if index == n:
@@ -90,6 +111,12 @@ def costPont(n, h, alt, disX, index):
         return impossible
 
     return costPont(n, h, alt, disX, index + 1)
+
+
+'''
+This method will calculate the possibility of making a bridge and making an aqueduct and will return the best one 
+of the possiblities
+'''
 
 
 def calculate(n, alpha, beta, h, values):

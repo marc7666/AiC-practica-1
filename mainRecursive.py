@@ -8,8 +8,11 @@ import argparse
 import read_file
 import calculsRecursive
 
-if __name__ == "__main__":
+'''
+Main function of the recursive version of the practical case
+'''
 
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='calculs')
     parser.add_argument('testing', help='Fichero del aqueducto')
     argumento = parser.parse_args()
