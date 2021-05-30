@@ -1,0 +1,6 @@
+
+all:
+	python main.py
+
+
+

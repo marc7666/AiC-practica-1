@@ -30,6 +30,11 @@ def calc_impossible(alt, d, h):
     return height > alt
 
 
+'''This method obtains de three different values: the distance between two columns (d), the different heights (
+coordinates Y), the different coordinates X 
+'''
+
+
 def obtainValues(values):
     d = []  # Distance
     disX = []  # Distance Cordenate Sol
