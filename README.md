@@ -9,6 +9,15 @@ This project have been developed by:
 - [Aarón Arenas](https://github.com/aaron-at97)
 - [Marc Cervera](https://github.com/marc7666)
 
+## Especificació formal:
+
+### Precondició: 
+
+
+
+### Postcondició: 
+
+
 
 ## read_file.py:
 
