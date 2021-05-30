@@ -13,11 +13,13 @@ This project have been developed by:
 
 ### Precondició: 
 
-
+n (nombre de punts del terreny), h (alçada desitjada de l'aqüeducte), alpha (factor de cost), beta (factor de cost) => nombres enters (primera linia del fitxer d'entrada)
+n linies amb dos nombres cadascuna que representen les coordenades de cada punt del sòl. => (x, y) => coordenades cartesianes => nombres enters
 
 ### Postcondició: 
 
-
+Donades totes les coordenades del terreny, és calcula el cost de fabricar un pont i un aqüeducte (per separat) i finalment es fabrica el que sigui més eficient => En cas que es puguin construir totes les columnes sense superar la altura límit.
+En cas que hi hagi una columna que no es pugui construir, el programa treurà per pantalla que no és possible construir un aqüeducte. Encara que l'aqüeducte no sigui possible, el pont ancara podría ésser possible de construir.
 
 ## read_file.py:
 
