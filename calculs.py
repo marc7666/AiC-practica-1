@@ -95,7 +95,7 @@ This method calculates the costs of making a bridge
 '''
 
 
-def costPont(n, alpha, beta, h, alt, disX, d):
+def costPont(n, alpha, beta, h, alt, disX):
     costsAltPont = (h - alt[0]) + (h - alt[n - 1])
     dPont = disX[n - 1] - disX[0]
     impossible = True
@@ -128,7 +128,7 @@ def calculate(n, alpha, beta, h, values):
         else:
             return "impossible"
     else:
-        cost1, impossiblePont = costPont(n, alpha, beta, h, alt, disX, d)
+        cost1, impossiblePont = costPont(n, alpha, beta, h, alt, disX)
         cost2, impossible = costsAque(n, alpha, beta, h, alt, d)
 
     if impossiblePont and not impossible:

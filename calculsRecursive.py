@@ -140,7 +140,6 @@ def calculate(n, alpha, beta, h, values):
         impossiblePont = costPont(n, h, alt, disX, index)
         index = 0
         cost2, impossible = costsAque(n, alpha, beta, h, alt, d, index, costsAlt, costsDis)
-    impossible = True
     if impossiblePont and not impossible:
         return cost
 
@@ -153,3 +152,4 @@ def calculate(n, alpha, beta, h, values):
     elif cost > cost2 and impossible and impossiblePont:
         return cost2
     return "impossible"
+
