@@ -15,7 +15,9 @@ This project have been developed by:
 
 
 
-Postcondició: 
+###Postcondició: 
+
+
 
 ## read_file.py:
 
