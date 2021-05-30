@@ -1,0 +1,6 @@
+
+test:
+	python main.py
+
+
+
