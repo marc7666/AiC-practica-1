@@ -43,17 +43,10 @@ Finalment, és retorna la llista *values,* n, h, aplha i beta.
 
 Aquest fitxer, contindrà el programa principal del mètode iteratiu.
 
-En primer lloc, es crea un nou objecte del tipus *ArgumentParser*, que contindrà tota la informació necessària par a analitzar la línia de comandes amb els tipus de dades de Python.
-
-Aquest objecte té diversos paràmetres, però només se'n modificarà un. El paràmetre *description*. Aquest paràmetre dóna una breu descripció del que fa el programa i de com funciona.
-
-Seguidament, realitzem una crida a la funció *add\_argument(),* que defineix com s’ha d’interpretar un determinat argument de la línia de comandes. S’ha realitzar una modificació d’un dels arguments de la funció. L’argument en qüestió, és l’argument *help*, que dóna una breu descripció del que fa l’argument.
-
-El següent pas és convertir les cadenes d’arguments en objectes gràcies a la funció *parse\_args().*
-
-Seguidament, s’obtenen els valors n, h, alpha, beta amb la funció integrada en el script descrit anteriorment.
-
-Finalment, es realitzen els càlculs pertinents i s’escriuen els resultats en un fitxer anomenat: *output.ans*
+En primer lloc, mitjançant un bucle *for* que va des d'1 fins a 21 s'aniràn generant nombres. Si el nombre generat és menor a 10, aquest nombres es concatenarà darrere d'un 0 i posteriorment s'afegirà a un *String*, anomenat *fitx* que contindrà el nom complet de l'arxiu de test.
+Seguidament, s'obtindràn els les dades del problema mitjançant la funció que llegeix el fitxer per a posteriorment realitzar els càlculs oportuns.
+A continuació, és treurà per pantallael nom del fitxer i el resultat. Per deixar constància, s'obrirà el fitxer *output.ans* per escriure-hi el resultat i posteriorment es tancarà.
+Finalment, ...
 
 ## mainRecursive.py:
 
