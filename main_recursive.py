@@ -38,10 +38,10 @@ if __name__ == "__main__":
 
         with open(FILE) as a:
             contentA = set(a)
-            contentA.close()
+        contentA.close()
         with open("output.ans") as b:
             contentB = set(b)
-            contentB.close()
+        contentB.close()
         if contentB == contentA:
             print("OK")
 
