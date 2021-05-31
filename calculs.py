@@ -5,7 +5,7 @@
 # ************************************
 import math
 
-# disx todas las posiciones del vector
+# distanceX todas las posiciones del vector
 # posantX siempre el eje x_1
 
 '''
@@ -13,9 +13,9 @@ This method calculates the possibility of creating a bridge
 '''
 
 
-def calc_impossiblepont(alt, disX, d, h, posantX):
-    r = (d / 2)
-    height = math.sqrt((r ** 2 - ((disX - posantX - r) ** 2))) + (h - r)
+def calc_impossiblepont(alt, distanceX, distance, heightAqueduct, posantX):
+    radius = (distance / 2)
+    height = math.sqrt((radius ** 2 - ((distanceX - posantX - radius) ** 2))) + (heightAqueduct - radius)
     return height > alt
 
 
@@ -24,9 +24,9 @@ This method calculates the possiblity of creating an aqueduct
 '''
 
 
-def calc_impossible(alt, d, h):
-    r = (d / 2)
-    height = (h - r)
+def calc_impossible(alt, distance, heightAqueduct):
+    radius = (distance / 2)
+    height = (heightAqueduct - radius)
     return height > alt
 
 
@@ -36,22 +36,22 @@ coordinates Y), the different coordinates X
 
 
 def obtainValues(values):
-    d = []  # Distance
-    disX = []  # Distance Cordenate Sol
+    distance = []  # Distance
+    distanceX = []  # Distance Cordenate Sol
     alt = []  # Height
     antDis = -50
 
     for pos in values:
 
-        x, y = medides(pos)
-        alt.append(y)
-        disX.append(x)
+        coordinateX, coordinateY = medides(pos)
+        alt.append(coordinateY)
+        distanceX.append(coordinateX)
         if antDis != -50:
-            d.append(x - antDis)
+            distance.append(coordinateX - antDis)
 
-        antDis = x
+        antDis = coordinateX
 
-    return d, alt, disX
+    return distance, alt, distanceX
 
 
 '''
@@ -60,10 +60,10 @@ This method returns a tuple with a the two coordinates of a terrain point
 
 
 def medides(values):
-    x = values[0]
-    y = values[1]
+    coordinateX = values[0]
+    coordinateY = values[1]
 
-    return x, y
+    return coordinateX, coordinateY
 
 
 '''
@@ -71,17 +71,17 @@ This method calculates the costs of making an aqueduct
 '''
 
 
-def costsAque(n, alpha, beta, h, alt, d):
+def costsAque(terrainPoints, alpha, beta, heightAqueduct, alt, distance):
     costsAlt = 0
     costsDis = 0
     impossible = True
 
-    for i in range(0, n):
-        costsAlt += (h - alt[i])
+    for i in range(0, terrainPoints):
+        costsAlt += (heightAqueduct - alt[i])
         if 0 < i:
-            impossible = calc_impossible(alt[i], d[i - 1], h)
-        if i < n - 1:
-            costsDis += (d[i] ** 2)
+            impossible = calc_impossible(alt[i], distance[i - 1], heightAqueduct)
+        if i < terrainPoints - 1:
+            costsDis += (distance[i] ** 2)
         if not impossible:
             break
 
@@ -95,15 +95,15 @@ This method calculates the costs of making a bridge
 '''
 
 
-def costPont(n, alpha, beta, h, alt, disX):
-    costsAltPont = (h - alt[0]) + (h - alt[n - 1])
-    dPont = disX[n - 1] - disX[0]
+def costPont(terrainPoints, alpha, beta, heightAqueduct, alt, distanceX):
+    costsAltPont = (heightAqueduct - alt[0]) + (heightAqueduct - alt[terrainPoints - 1])
+    dPont = distanceX[terrainPoints - 1] - distanceX[0]
     impossible = True
 
-    for i in range(0, n):
+    for i in range(0, terrainPoints):
 
         if 0 < i:
-            impossible = calc_impossiblepont(alt[i], disX[i], dPont, h, disX[0])
+            impossible = calc_impossiblepont(alt[i], distanceX[i], dPont, heightAqueduct, distanceX[0])
 
         if not impossible:
             break
@@ -119,17 +119,17 @@ of the possiblities
 '''
 
 
-def calculate(n, alpha, beta, h, values):
-    d, alt, disX = obtainValues(values)
-    if n == 2:
-        cost2, impossible = costsAque(n, alpha, beta, h, alt, d)
+def calculate(terrainPoints, alpha, beta, heightAqueduct, values):
+    distance, alt, distanceX = obtainValues(values)
+    if terrainPoints == 2:
+        cost2, impossible = costsAque(terrainPoints, alpha, beta, heightAqueduct, alt, distance)
         if impossible:
             return cost2
         else:
             return "impossible"
     else:
-        cost1, impossiblePont = costPont(n, alpha, beta, h, alt, disX)
-        cost2, impossible = costsAque(n, alpha, beta, h, alt, d)
+        cost1, impossiblePont = costPont(terrainPoints, alpha, beta, heightAqueduct, alt, distanceX)
+        cost2, impossible = costsAque(terrainPoints, alpha, beta, heightAqueduct, alt, distance)
 
     if impossiblePont and not impossible:
         return cost1

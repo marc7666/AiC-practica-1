@@ -34,7 +34,7 @@ if __name__ == "__main__":
         print("---------------------------------------")
         print("Resultado introducido en el output.ans")
         print("---------------------------------------")
-        print("Resultado: ", cost)
+        print("Resultado RECURSIVO: ", cost)
         print("-------------------------")
         file_ans = open('output.ans', 'w')
         file_ans.write(str(cost) + '\n')
