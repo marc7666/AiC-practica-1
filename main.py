@@ -15,27 +15,27 @@ if __name__ == "__main__":
 
     for i in range(i, 21):
         if i < 10:
-            num = "0" + str(i)
-            file = "aqueductes/secret-" + num + ".in"
+            NUM = "0" + str(i)
+            FILE = "aqueductes/secret-" + NUM + ".in"
         else:
-            num = str(i)
-            file = "aqueductes/secret-" + num + ".in"
-        values, n, h, alpha, beta = read_file.read_file(file, data_separation=" ")
+            NUM = str(i)
+            FILE = "aqueductes/secret-" + NUM + ".in"
+        values, n, h, alpha, beta = read_file.read_file(FILE, data_separation=" ")
 
         cost = calculs.calculate(n, alpha, beta, h, values)
         print("---------------------------------------")
-        print("Fitx", file)
+        print("Fitx", FILE)
         print("---------------------------------------")
         print("Resultado introducido en el output.ans")
         print("---------------------------------------")
-        print("Resultado RECURSIVO: ", cost)
+        print("Resultado: ", cost)
         print("-------------------------")
         file_ans = open('output.ans', 'w')
         file_ans.write(str(cost) + '\n')
         file_ans.close()
-        file = "aqueductepont/secret-" + num + ".ap.ans"
+        FILE = "aqueductepont/secret-" + NUM + ".ap.ans"
 
-        with open(file) as a:
+        with open(FILE) as a:
             contentA = set(a)
 
         with open("output.ans") as b:
@@ -43,3 +43,6 @@ if __name__ == "__main__":
 
         if contentB == contentA:
             print("OK")
+            
+        contentA.close()
+        contentB.close()
