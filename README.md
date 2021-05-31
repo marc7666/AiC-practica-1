@@ -50,9 +50,9 @@ Finalment, ...
 
 ## mainRecursive.py:
 
-L’estratègia seguida és la mateixa que en l’script main.py de la versió iterativa.  **calculs.py:** 
+Aquest script és exactament el mateix que l'anterior, amb la diferència que aquest relitza la crida al fitxer que realitza els càlculs de manera recursiva.
 
-En aquest script, és on es realitzen els càlculs en format iteratiu.
+## calculsRecursive.py
 
 En  obrir  el  fitxer  de  Python,  el  primer  mètode  que  s’observa  és  un  mètode  anomenat calc\_impossiblepont, el qual retorna veritat o fals segons si l'aqüeducte es possible o no.
 
