@@ -74,7 +74,7 @@ def costs_aqueduct(terrain_points, alpha, beta, height_aqueduct, alt, distance):
 
     for i in range(0, terrain_points):
         costs_alt += (height_aqueduct - alt[i])
-        if 0 < i:
+        if i > 0:
             impossible = calc_impossible(alt[i], distance[i - 1], height_aqueduct)
         if i < terrain_points - 1:
             costs_dis += (distance[i] ** 2)
@@ -99,7 +99,7 @@ def cost_pont(terrain_points, alpha, beta, height_aqueduct, alt, distance_x):
 
     for i in range(0, terrain_points):
 
-        if 0 < i:
+        if i > 0:
             impossible = calc_impossible_pont(
                 alt[i], distance_x[i], d_pont, height_aqueduct, distance_x[0]
             )
@@ -114,8 +114,8 @@ def cost_pont(terrain_points, alpha, beta, height_aqueduct, alt, distance_x):
 
 def calculate(terrain_points, alpha, beta, height_aqueduct, values):
     """
-    This method will calculate the possibility of making a bridge and making an aqueduct and will return the best one
-    of the possibilities
+    This method will calculate the possibility of making a bridge and
+    making an aqueduct and will return the best one of the possibilities
     """
 
     distance, alt, distance_x = obtain_values(values)
