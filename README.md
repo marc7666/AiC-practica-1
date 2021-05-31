@@ -43,23 +43,16 @@ Finalment, és retorna la llista *values,* n, h, aplha i beta.
 
 Aquest fitxer, contindrà el programa principal del mètode iteratiu.
 
-En primer lloc, es crea un nou objecte del tipus *ArgumentParser*, que contindrà tota la informació necessària par a analitzar la línia de comandes amb els tipus de dades de Python.
-
-Aquest objecte té diversos paràmetres, però només se'n modificarà un. El paràmetre *description*. Aquest paràmetre dóna una breu descripció del que fa el programa i de com funciona.
-
-Seguidament, realitzem una crida a la funció *add\_argument(),* que defineix com s’ha d’interpretar un determinat argument de la línia de comandes. S’ha realitzar una modificació d’un dels arguments de la funció. L’argument en qüestió, és l’argument *help*, que dóna una breu descripció del que fa l’argument.
-
-El següent pas és convertir les cadenes d’arguments en objectes gràcies a la funció *parse\_args().*
-
-Seguidament, s’obtenen els valors n, h, alpha, beta amb la funció integrada en el script descrit anteriorment.
-
-Finalment, es realitzen els càlculs pertinents i s’escriuen els resultats en un fitxer anomenat: *output.ans*
+En primer lloc, mitjançant un bucle *for* que va des d'1 fins a 21 s'aniràn generant nombres. Si el nombre generat és menor a 10, aquest nombres es concatenarà darrere d'un 0 i posteriorment s'afegirà a un *String*, anomenat *fitx* que contindrà el nom complet de l'arxiu de test.
+Seguidament, s'obtindràn els les dades del problema mitjançant la funció que llegeix el fitxer per a posteriorment realitzar els càlculs oportuns.
+A continuació, és treurà per pantallael nom del fitxer i el resultat. Per deixar constància, s'obrirà el fitxer *output.ans* per escriure-hi el resultat i posteriorment es tancarà.
+Finalment, guardem el contingut del fitxer de test i comprovem el resultat amb el nostre fitxer (el fitxer que ha generat el nostre programa). Si el contingut d'ambdós fitxers és igual, el test és correcte. Aquesta acció és realitza per cadascun dels testos.
 
 ## mainRecursive.py:
 
-L’estratègia seguida és la mateixa que en l’script main.py de la versió iterativa.  **calculs.py:** 
+Aquest script és exactament el mateix que l'anterior, amb la diferència que aquest relitza la crida al fitxer que realitza els càlculs de manera recursiva.
 
-En aquest script, és on es realitzen els càlculs en format iteratiu.
+## calculsRecursive.py
 
 En  obrir  el  fitxer  de  Python,  el  primer  mètode  que  s’observa  és  un  mètode  anomenat calc\_impossiblepont, el qual retorna veritat o fals segons si l'aqüeducte es possible o no.
 
