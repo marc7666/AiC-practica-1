@@ -1,6 +1,6 @@
 import random
 import calculs
-import calculsRecursive
+import calculs_recursive
 
 
 def soil_generator(n):

@@ -7,7 +7,7 @@ import argparse
 import sys
 
 import read_file
-import calculsRecursive
+import calculs_recursive
 
 '''
 Main function of the recursive version of the practical case
@@ -28,7 +28,7 @@ if __name__ == "__main__":
             fitx = "aqueductes/secret-" + num + ".in"
         values, n, h, alpha, beta = read_file.read_file(fitx, data_separation=" ")
 
-        cost = calculsRecursive.calculate(n, alpha, beta, h, values)
+        cost = calculs_recursive.calculate(n, alpha, beta, h, values)
         print("---------------------------------------")
         print("Fitx", fitx)
         print("---------------------------------------")

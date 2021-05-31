@@ -77,7 +77,7 @@ def costs_aqueduct(
 
     costs_alt += (height_aqueduct - alt[index])
 
-    if 0 < index:
+    if index > 0:
         impossible = calc_impossible(alt[index], distance[index - 1], height_aqueduct)
 
     if index < terrain_points - 1:
@@ -101,7 +101,7 @@ def cost_pont(terrain_points, height_aqueduct, alt, distance_x, index):
     if index == terrain_points:
         return impossible
     d_pont = distance_x[terrain_points - 1] - distance_x[0]
-    if 0 < index:
+    if index > 0:
         impossible = calc_impossible_pont(
             alt[index], distance_x[index], d_pont, height_aqueduct, distance_x[0]
         )
@@ -121,7 +121,9 @@ def calculate(terrain_points, alpha, beta, height_aqueduct, values):
     index = 0
     costs_alt = 0
     costs_dis = 0
-    """Calculate cost pont"""
+
+    # Calculate cost pont
+
     costs_alt_pont = (height_aqueduct - alt[0]) + (height_aqueduct - alt[terrain_points - 1])
     d_pont = distance_x[terrain_points - 1] - distance_x[0]
     cost = ((alpha * costs_alt_pont) + (beta * (d_pont ** 2)))
@@ -132,23 +134,22 @@ def calculate(terrain_points, alpha, beta, height_aqueduct, values):
         )
         if impossible:
             return cost2
-        else:
-            return "impossible"
+        return "impossible"
     else:
-        impossiblePont = cost_pont(terrain_points, height_aqueduct, alt, distance_x, index)
+        impossible_pont = cost_pont(terrain_points, height_aqueduct, alt, distance_x, index)
         index = 0
         cost2, impossible = costs_aqueduct(
             terrain_points, alpha, beta, height_aqueduct, alt, distance, index, costs_alt, costs_dis
         )
-    if impossiblePont and not impossible:
+    if impossible_pont and not impossible:
         return cost
 
-    elif impossible and not impossiblePont:
+    elif impossible and not impossible_pont:
         return cost2
 
-    elif cost < cost2 and impossible and impossiblePont:
+    elif cost < cost2 and impossible and impossible_pont:
         return cost
 
-    elif cost > cost2 and impossible and impossiblePont:
+    elif cost > cost2 and impossible and impossible_pont:
         return cost2
     return "impossible"
