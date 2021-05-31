@@ -46,7 +46,7 @@ Aquest fitxer, contindrà el programa principal del mètode iteratiu.
 En primer lloc, mitjançant un bucle *for* que va des d'1 fins a 21 s'aniràn generant nombres. Si el nombre generat és menor a 10, aquest nombres es concatenarà darrere d'un 0 i posteriorment s'afegirà a un *String*, anomenat *fitx* que contindrà el nom complet de l'arxiu de test.
 Seguidament, s'obtindràn els les dades del problema mitjançant la funció que llegeix el fitxer per a posteriorment realitzar els càlculs oportuns.
 A continuació, és treurà per pantallael nom del fitxer i el resultat. Per deixar constància, s'obrirà el fitxer *output.ans* per escriure-hi el resultat i posteriorment es tancarà.
-Finalment, ...
+Finalment, guardem el contingut del fitxer de test i comprovem el resultat amb el nostre fitxer (el fitxer que ha generat el nostre programa). Si el contingut d'ambdós fitxers és igual, el test és correcte. Aquesta acció és realitza per cadascun dels testos.
 
 ## mainRecursive.py:
 
