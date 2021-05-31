@@ -101,10 +101,10 @@ En aquest script, s’han transformat a recursiu únicament les funcions de càl
 
 
 # Requeriments:
-
-- python main.py <File>
-- python mainRecursive.py <File>
-
+MakeFile
+- python3 main.py 
+- python3 main_recursive.py 
+Nota: nomes cal ejecutar els main.py i main_recusive en el mateix directori dels test
 Cal destacar que els arxiu *.py* han d’estar en el mateix directori atès que tenen dependències entre ells.
 PAGE6
 
