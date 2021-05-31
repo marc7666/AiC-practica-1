@@ -128,7 +128,7 @@ def calculate(terrain_points, alpha, beta, height_aqueduct, values):
         else:
             return "impossible"
     else:
-        cost1, impossiblePont = cost_ont(terrain_points, alpha, beta, height_aqueduct, alt, distance_x)
+        cost1, impossiblePont = cost_pont(terrain_points, alpha, beta, height_aqueduct, alt, distance_x)
         cost2, impossible = costs_aqueduct(terrain_points, alpha, beta, height_aqueduct, alt, distance)
 
     if impossiblePont and not impossible:
