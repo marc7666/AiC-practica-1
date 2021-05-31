@@ -18,7 +18,9 @@ def read_file(filename, data_separation=" "):
         strip_reader = (line.strip() for line in vec_file_name)
         filtered_reader = [line for line in strip_reader if line]
         # First line is the problem data
-        terrain_points, height_aqueduct, alpha, beta = map(int, filtered_reader[0].split(data_separation))
+        terrain_points, height_aqueduct, alpha, beta = map(
+            int, filtered_reader[0].split(data_separation)
+        )
         # Split lines, parse token and append to values (2 to last)
         for line in filtered_reader[1:]:
             coordinate_x, coordinate_y = map(int, line.split(data_separation))
