@@ -4,12 +4,12 @@
 # Marc Cervera Rosell
 # ************************************+
 
-'''
-Reading de input file withe the data problem
-'''
-
 
 def read_file(filename, data_separation=" "):
+    """
+    Reading de input file withe the data problem
+    """
+
     print("************* Fichero cargado *************")
     values = []  # List of tuples (x, y)
     # Openning file
